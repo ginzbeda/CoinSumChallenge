@@ -10,7 +10,7 @@ class Test(unittest.TestCase):
         remaining = 10
         coin_count = 0
         result_coins = []
-        expected = 1, 1, 3, [3, 3, 3]
+        expected = 1, 3, [3, 3, 3]
         self.assertEqual(expected, add_coin(coins, coin_index, remaining, coin_count, result_coins))
 
     def test_pick_end(self):
