@@ -10,7 +10,7 @@ class Test(unittest.TestCase):
         remaining = 10
         coin_count = 0
         result_coins = []
-        expected = 2, 1, 3, [3, 3, 3]
+        expected = 1, 1, 3, [3, 3, 3]
         self.assertEqual(expected, add_coin(coins, coin_index, remaining, coin_count, result_coins))
 
     def test_pick_end(self):
@@ -63,6 +63,30 @@ class Test(unittest.TestCase):
         coin_index = 4
         remaining = 5
         self.assertEqual(4, index_move(coins, coin_index, remaining))
+
+    def test_min_remaining_index(self):
+        coins = [1, 2, 3, 4, 5]
+        coin_index = 2
+        remaining = 10
+        self.assertEqual(3, min_remaining_index(coins, coin_index, remaining))
+
+    def test_min_remaining_index(self):
+        coins = [1, 2, 3, 4, 5]
+        coin_index = 1
+        remaining = 10
+        self.assertEqual(1, min_remaining_index(coins, coin_index, remaining))
+
+    def test_min_remaining_index(self):
+        coins = [1, 2, 3, 4, 5]
+        coin_index = 4
+        remaining = 10
+        self.assertEqual(4, min_remaining_index(coins, coin_index, remaining))
+
+    def test_min_remaining_index(self):
+        coins = [-1, -2, -3, -4, -5]
+        coin_index = 2
+        remaining = 10
+        self.assertEqual(1, min_remaining_index(coins, coin_index, remaining))
 
     def test_coin_sum1(self):
         coins = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
