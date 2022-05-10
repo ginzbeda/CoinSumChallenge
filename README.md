@@ -4,6 +4,7 @@ The program will find the least amount of coins possible to meet the sum goal.
 
 The user is prompted to enter a list of coins available (example: 1 2 3 4 5) and a goal sum (example: 9)
 The program returns the number of coins used and the coins that were used. (example: 2, [5, 4])
+  - logging for debugging
 
 Algorithm:
   - since the list is sorted, I use the median index to understand if the best coin to use is to the right or left
@@ -13,3 +14,4 @@ Algorithm:
 
 Things I could have done:
   - keep a cashe of previously touced coins to avoid finding them again 
+
