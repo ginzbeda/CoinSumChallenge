@@ -13,9 +13,11 @@ Algorithm:
       - when the set is of even size it uses the higher median to try to use the bigger number first.
   - if the coin is not found it takes the median of the best direction set
   - if a neighboring or current coin is a perfect match it stops searching (with a search by medians the neighbors are visited last)
+  - accounts for negative coins and empty coins
 
 Things I could have done:
   - keep a cashe of previously touced coins to avoid finding them again 
       - this could be done by passing a future number while holding the solution with the current
   - after completing my code I thoguht of a better option for touching less indexes without checking neighboring values
+        - use three points to find closest best
         - will be implementing the optimal solution as well
