@@ -113,6 +113,16 @@ class Test(unittest.TestCase):
         goal_sum = 5
         self.assertEqual((3, [2, 2, 1]), coin_sum(coins, goal_sum))
 
+    def test_coin_sum_empty(self):
+        coins = []
+        goal_sum = 5
+        self.assertEqual((0, []), coin_sum(coins, goal_sum))
+
+    def test_coin_sum_neg_mid(self):
+        coins = [-4, -5, -6, 1, 2, 3, 7, 8, 9, 10]
+        goal_sum = 13
+        self.assertEqual((2, [10, 3]), coin_sum(coins, goal_sum))
+
 
 if __name__ == '__main__':
     unittest.main()
