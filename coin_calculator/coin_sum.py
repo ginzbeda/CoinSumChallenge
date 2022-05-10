@@ -2,14 +2,20 @@ import logging
 
 
 # Log current info
+import math
+
+
 def log(coins, coin_index, remaining):
     logging.debug(coins[coin_index], " at: ", coin_index, " remaining : ", remaining)
 
 
 # pick next middle
 def pick_middle(start, end):
-    logging.info("new middle: ", (end - start)/2)
-    return (end - start)/2
+    logging.info("new middle: ", start + (end - start)//2)
+    if (end - start)%2 > 0:
+        return (start + (end - start) // 2) + 1
+    else:
+        return start + (end - start) // 2
 
 
 # once coin is picked as next it is added to used coins, coin count and remaining updated
@@ -26,16 +32,26 @@ def index_move(coins, coin_index, remaining):
     log(coins, coin_index, remaining)
     right = coins[coin_index+1]
     left = coins[coin_index-1]
-    if remaining - right == 0:
+    right_remaining = remaining - right
+    left_remaining = remaining - left
+    curr_remaining = remaining  - coins[coin_index]
+    if right_remaining == 0:
         return coin_index + 1
     elif remaining - left == 0:
         return coin_index - 1
-    elif (remaining - right <= remaining - left) \
-            and (remaining - right <= remaining - coins[coin_index]):
+    elif curr_remaining < 0:
+        if abs(left_remaining) <= abs(right_remaining) and abs(left_remaining) <= remaining - coins[coin_index]:
+            return pick_middle(0, coin_index)
+        elif abs(right_remaining) <= abs(left_remaining) and abs(right_remaining) <= remaining - coins[coin_index]:
+            return pick_middle(0, coin_index)
+    elif (0 <= abs(right_remaining) <= abs(left_remaining)) \
+            and (abs(right_remaining <= remaining) - coins[coin_index]):
         return pick_middle(coin_index, len(coins)-1)
-    elif remaining - right >= remaining - left \
-            and (remaining - left <= remaining - coins[coin_index]):
+    elif (0 <= left_remaining <= right_remaining) \
+            and (abs(remaining - left) <= remaining - coins[coin_index]):
         return pick_middle(0, coin_index)
+    else:
+        return coin_index
 
 
 # Coins to reach sum goal
