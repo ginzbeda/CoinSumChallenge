@@ -184,3 +184,9 @@ def coin_sum(coins, goal_sum):
     logging.info("final return coin count: %d", coin_count)
     logging.info("final return result coins: %s" % result_coins)
     return coin_count, result_coins
+
+
+if __name__ == '__main__':
+    coins = [int(item) for item in input("Please enter coins available (example: 1 2 3 4): ").split()]
+    sum_goal = int(input("please enter sum goal: "))
+    result = coin_sum(coins, sum_goal)
