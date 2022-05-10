@@ -99,7 +99,7 @@ class Test(unittest.TestCase):
         self.assertEqual((0, []), coin_sum(coins, goal_sum))
 
     def test_coin_sum3(self):
-        coins = [-1, -2, -3]
+        coins = [-3, -2, -1]
         goal_sum = 22
         self.assertEqual((0, []), coin_sum(coins, goal_sum))
 
@@ -119,7 +119,7 @@ class Test(unittest.TestCase):
         self.assertEqual((0, []), coin_sum(coins, goal_sum))
 
     def test_coin_sum_neg_mid(self):
-        coins = [-4, -5, -6, 1, 2, 3, 7, 8, 9, 10]
+        coins = [-6, -5, -4, 1, 2, 3, 7, 8, 9, 10]
         goal_sum = 13
         self.assertEqual((2, [10, 3]), coin_sum(coins, goal_sum))
 
