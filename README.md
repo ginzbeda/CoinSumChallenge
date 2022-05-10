@@ -9,7 +9,7 @@ Algorithm:
   - since the list is sorted, I use the median index to understand if the best coin to use is to the right or left
       - when the set is of even size it uses the higher median to try to use the bigger number first.
   - if the coin is not found it takes the median of the best direction set
-  - if a neighboring coin is a perfect match it stops searching (with a search by medians the neighbors are visited last)
+  - if a neighboring or current coin is a perfect match it stops searching (with a search by medians the neighbors are visited last)
 
 Things I could have done:
   - keep a cashe of previously touced coins to avoid finding them again 
